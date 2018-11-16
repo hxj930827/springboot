@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  mvc: # 如果配置了beetl，那么可以不用配置mvc
+    view:
+      # 这里没有配置返回后缀，因为配置了beetl,它的返回路径是.html 结尾，所以如果返回.jsp文件时，需要填写 文件后缀 eg:  addName.jsp，
+      # 返回.html时，不需要填写.html
+      prefix: /WEB-INF/views/
+  # mysql
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cecc?useUnicode=true&characterEncoding=utf-8
+    username: hxj
+    password: hxj
+    driver-class-name: com.mysql.jdbc.Driver
+logging:
+  config: classpath:logback-spring.xml
+  path: F:\\demo
+mybatis:
+  # 对应实体类的路径
+  type-aliases-package: com.**.model
+  # 一定要对应mapper映射xml文件的所在路径
+  mapper-locations: classpath:mapping/*.xml
+  # mybatis的配置文件
+  config-location: classpath:mybatis-config.xml

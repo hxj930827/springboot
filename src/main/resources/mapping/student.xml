@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springboot.city.student.dao.StudentDao">
+    <select id="getInfo" resultType="com.example.springboot.city.student.model.Student">
+        SELECT attachment_name FROM sys_file_info
+    </select>
+</mapper>

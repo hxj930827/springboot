@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>beetl测试</title>
+</head>
+<body>
+现在时间是${now}<br/>
+我是${name}
+@if(name==null){
+fdsfsdf
+@}
+@var a = 2;
+@var b = 3;
+@var result = a+b;
+hello 2+3=${result}  webapp beetl
+<br/>
+<!--但参数为null 或者未定义时，都可以用!判断-->
+${age!"如果age为null，那么将打印出我"}
+<br/>
+<!--格式化日期-->
+${newDate,dateFormat="yyyy-MM-dd"}
+<!-- 定义了一个模板变量content = { …} ; 此变量跟临时变量一样，可以在其他地方使用，最常见的用法是用于复杂的布局。 -->
+@ var content={
+<form>
+    <input type="text" value="韩旭杰"/>
+</form>
+@ };
+
+<div style="height:50px;width:200px;background: red" >
+    ${content}
+</div>
+
+<!--Beetl 还可以定义额外的对象属性，而无需更改java对象，这叫着虚拟属性，如，对于所有集合，数组，都有共同的虚拟属性size.虚拟属性是“.~”+虚拟属性名-->
+list的集合大小为${list.~size}
+<br/>
+<!--三元表达式-->
+${age==null?"age为null":age}
+<br/>
+<!--for 循环-->
+@for (arrList in list){
+ @println(arrList);
+@}
+<br/>
+@for(var i=0 ;i<list.~size;i++){
+@println(list[i]);
+@}
+<br/>
+<!--elsefo语句-->
+@var list1 = [];
+@for(item in list1){
+@print(item);
+@}elsefor{
+@print("未有记录");
+@}
+<!--Beetl内置了少量实用函数，可以在Beetl任何地方调用。如下例子是调用date 函数，不传参数情况下，返回当前日期-->
+<br/>
+@ var date=date();
+@print(date);
+<br/>
+@var len = strutil.length("cbd");
+@println("len="+len);
+${date,"yyyy-MM-dd"}
+<br/>
+@var trimDate=trim(date,'yyyy');
+@print(trimDate);
+<br/>
+<!--！即使user不存在，或者user为null，或者user.wife为null，或者user.wife.name为null beetl都不将输出-->
+${user!"user不存在"}
+<br/>
+<!--has可以判断变量是否存在-->
+@if(!has(sex)){
+@ print("has可以判断变量是否存在");
+@}
+<br/>
+@if(sex!0==0){
+@ print("未定义sex");
+@}
+<br/>
+<!--layout和include方法后面必须加上{  }-->
+<!--layoutContent 是layout标签体{}渲染后的结果-->
+@layout("/beetl/layout.html",{title:'主题'}){
+Hello,this is main part
+@}
+<br/>
+<!--include-->
+@include("/add.jsp"){};
+<br/>
+</body>
+</html>

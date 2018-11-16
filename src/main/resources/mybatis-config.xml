@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--Mybatis的主要属性在这里进行配置-->
+    <settings>
+        <!--开启驼峰命名规则-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+         <!--配置打印SQL语句-->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+        <!--oracle中的null不被自动识别-->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <!--开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+        <!--开启懒加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--延迟查询嵌套类-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+        <!--定义包下类的别名（如果在springboot application.yml中配置了，这句话可以删除）-->
+    <!--<typeAliases>-->
+        <!--<package name="com.**.model"/>-->
+    <!--</typeAliases>-->
+    <!--分页插件也在这里进行配置  注意：如果使用非springboot的pagehelper依赖，需要在这里配置一下，
+    如果使用springboot的依赖（pagehelper-spring-boot-starter），那么这里不需要配置-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+</configuration>

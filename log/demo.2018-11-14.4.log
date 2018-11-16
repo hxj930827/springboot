@@ -1,0 +1,8 @@
+2018-11-14 10:56:53,623 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 6.588 seconds (JVM running for 8.263)
+2018-11-14 10:57:03,217 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id FROM sys_file_info where id='c52092592de64d8796520f5dc2c8fd67' 
+2018-11-14 10:57:03,481 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 
+2018-11-14 10:57:03,681 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-11-14 11:22:58,840 INFO (StartupInfoLogger.java:50)- Starting SpringbootApplication on jxd-hxj with PID 3200 (G:\eclipse\eclipse\workspace1\springboot\target\classes started by DELL in G:\eclipse\eclipse\workspace1\springboot)
+2018-11-14 11:22:58,842 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+2018-11-14 11:22:58,991 INFO (SpringApplication.java:680)- No active profile set, falling back to default profiles: default
+2018-11-14 11:23:06,821 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 9.215 seconds (JVM running for 10.897)

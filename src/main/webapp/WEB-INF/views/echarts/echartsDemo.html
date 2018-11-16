@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>beetl测试</title>
+    <script src="../../../static/echarts/echarts.min.js"></script>
+</head>
+<body>
+<div id="main" style="width:900px;height:600px;"></div>
+<script type="text/javascript">
+    var myChart=echarts.init(document.getElementById("main"));
+    // 指定图表的配置项和数据
+    var option={
+        // 标题
+        title:{
+            text:'ECharts 入门示例',
+            // 副标题
+            subtext:'echarts副标题',
+            // textStyle : 字体样式
+            textStyle:{
+                fontSize:20,
+                color:'green'
+            }
+        },
+        // 工具箱
+        toolbox:{
+            // 显示工具箱
+            show:true,
+            feature:{
+                // 数据视图
+                dataView:{
+                    show:true
+                },
+                // 配置项还原。
+                restore:{
+                    show:true
+                },
+                // 数据区域缩放。目前只支持直角坐标系的缩放。
+                dataZoom:{
+                    show:true
+                },
+                // 动态类型切换
+                magicType:{
+                    type:['line','bar']
+                },
+                // 保存图片
+                saveAsImage :{
+                    show:true,
+                    // 提示框触发的条件，可选：
+                    triggerOn:'mousemove|click'
+                }
+            }
+        },
+        // 提示框组件
+        tooltip:{
+            show:true
+        },
+        // 图例
+        legend:{
+            data:['销量','产量']
+        },
+        xAxis:{
+            data :["衬衫","羊毛衫","裤子","上衣","高跟鞋","袜子"]
+        },
+        yAxis:{
+
+        },
+        // 数据
+        series:[{
+            name:'销量',
+            type:'bar',
+            data:[5,29,36,10,10,20]
+        },{
+            name:"产量",
+            type:'line',
+            data:[5,29,36,10,10,20]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

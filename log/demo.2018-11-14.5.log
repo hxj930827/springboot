@@ -1,0 +1,9 @@
+2018-11-14 11:23:42,818 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT attachment_name FROM sys_file_info where id='c52092592de64d8796520f5dc2c8fd67' 
+2018-11-14 11:23:43,633 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 
+2018-11-14 11:23:44,200 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-11-14 11:25:15,928 INFO (StartupInfoLogger.java:50)- Starting SpringbootApplication on jxd-hxj with PID 3200 (G:\eclipse\eclipse\workspace1\springboot\target\classes started by DELL in G:\eclipse\eclipse\workspace1\springboot)
+2018-11-14 11:25:15,928 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+2018-11-14 11:25:15,928 INFO (SpringApplication.java:680)- No active profile set, falling back to default profiles: default
+2018-11-14 11:25:56,992 INFO (StartupInfoLogger.java:50)- Starting SpringbootApplication on jxd-hxj with PID 5220 (G:\eclipse\eclipse\workspace1\springboot\target\classes started by DELL in G:\eclipse\eclipse\workspace1\springboot)
+2018-11-14 11:25:56,995 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+2018-11-14 11:25:57,001 INFO (SpringApplication.java:680)- No active profile set, falling back to default profiles: default

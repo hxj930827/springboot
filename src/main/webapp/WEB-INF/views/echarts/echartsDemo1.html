@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>beetl测试</title>
+    <script src="../../../static/echarts/echarts.min.js"></script>
+    <script src="../../../static/jquery/jquery.js"></script>
+</head>
+<body>
+<div id="main" style="width:900px;height:600px;"></div>
+<button type="button" value="echarts" id="echarts">echarts</button>
+<script type="text/javascript">
+    var myChart=echarts.init(document.getElementById("main"));
+    // 指定图表的配置项和数据
+    var option={
+        // 标题
+        title:{
+            text:'ECharts 入门示例',
+            // 副标题
+            subtext:'echarts副标题',
+            // textStyle : 字体样式
+            textStyle:{
+                fontSize:20,
+                color:'green'
+            }
+        },
+        // 工具箱
+        toolbox:{
+            // 显示工具箱
+            show:true,
+            feature:{
+                // 数据视图
+                dataView:{
+                    show:true
+                },
+                // 配置项还原。
+                restore:{
+                    show:true
+                },
+                // 数据区域缩放。目前只支持直角坐标系的缩放。
+                dataZoom:{
+                    show:true
+                },
+                // 动态类型切换
+                magicType:{
+                    type:['line','bar']
+                },
+                // 保存图片
+                saveAsImage :{
+                    show:true,
+                    // 提示框触发的条件，可选：
+                    triggerOn:'mousemove|click'
+                }
+            }
+        },
+        // 提示框组件
+        tooltip:{
+            show:true
+        },
+        // 图例
+        legend:{
+            data:['销量','产量']
+        },
+        xAxis:{
+            data :[]
+        },
+        yAxis:{
+
+        },
+        // 数据
+        series:[{
+            name:'销量',
+            type:'bar',
+            data:[]
+        },{
+            name:"产量",
+            type:'line',
+            data:[]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    $(function () {
+        $.ajax({
+            url:"mybatis/echartsDemo1",
+            async:false,
+            cache:false,
+            dataType:"json",
+            success:function (data) {
+                myChart.setOption({
+                    xAxis:{data:data.info},
+                    series:[{name:'产量',data:data.data},{name:'销量',data:[4,25,33,8,8,15]}]
+                })
+            },
+            error:function (error) {
+
+            }
+
+        });
+    })
+</script>
+</body>
+</html>

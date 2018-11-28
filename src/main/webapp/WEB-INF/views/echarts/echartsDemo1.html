@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <base href="<%=basePath%>">
     <meta charset="UTF-8">
     <title>beetl测试</title>
-    <script src="../../../static/echarts/echarts.min.js"></script>
-    <script src="../../../static/jquery/jquery.js"></script>
+    <script src="http://localhost:8080/static/echarts/echarts.min.js"></script>
+    <script src="http://localhost:8080/static/jquery/jquery.js"></script>
 </head>
 <body>
 <div id="main" style="width:900px;height:600px;"></div>
@@ -82,9 +83,9 @@
     myChart.setOption(option);
     $(function () {
         $.ajax({
-            url:"mybatis/echartsDemo1",
+            url:"/mybatis/echartsDemo1",
             async:false,
-            cache:false,
+            type:"post",
             dataType:"json",
             success:function (data) {
                 myChart.setOption({

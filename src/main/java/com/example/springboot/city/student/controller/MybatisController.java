@@ -29,20 +29,20 @@ import java.util.*;
  * @create 2018/11/14
  * @since 1.0.0
  */
-@RequestMapping(value = "/mybatis")
+@RequestMapping(value = "/mybatis/")
 @Controller
 public class MybatisController {
     private static ObjectMapper objectMapper = new ObjectMapper();
     @Autowired
     private StudentService studentService;
-    @RequestMapping(value = "/addStudent")
+    @RequestMapping(value = "addStudent")
     public String addStudent(HttpServletRequest request, HttpServletResponse response){
         PageInfo<Student> pageInfo =studentService.getInfo();
         List<Student> list=pageInfo.getList();
         return null;
     }
 
-    @RequestMapping(value = "/echartsIndex")
+    @RequestMapping(value = "echartsIndex")
     public ModelAndView echartsIndex(){
         ModelAndView mv=new ModelAndView();
         String info[]={"衬衫","羊毛衫","裤子","上衣","高跟鞋","袜子"};
@@ -80,7 +80,7 @@ public class MybatisController {
      * @param response
      */
    // @ResponseBody
-    @RequestMapping(value = "/echartsDemo1")
+    @RequestMapping(value = "echartsDemo1")
     public void echartsDemo1(HttpServletResponse response){
         String info[]={"衬衫","羊毛衫","裤子","上衣","高跟鞋","袜子"};
         List<String> resultList= new ArrayList<>(Arrays.asList(info));

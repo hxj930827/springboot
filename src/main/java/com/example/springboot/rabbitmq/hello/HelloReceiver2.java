@@ -1,8 +1,8 @@
 /**
- * FileName: HelloReceiver1
+ * FileName: HelloReceiver2
  * Author:   韩旭杰
- * Date:     2019/2/13 10:49
- * Description: 最简单的hello生产和消费实现（单生产者和单消费者）
+ * Date:     2019/2/13 14:27
+ * Description: 用于消费者测试
  */
 package com.example.springboot.rabbitmq.hello;
 
@@ -11,7 +11,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 /**
- * 说明：〈消费者1测试〉
+ * 说明：〈用于消费者2测试〉
  *
  * @author 韩旭杰
  * @date 2019/2/13
@@ -19,10 +19,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RabbitListener(queues = "helloQueue")
-public class HelloReceiver1 {
+public class HelloReceiver2 {
 
     @RabbitHandler
     public void process(String hello) {
-        System.out.println("Receiver1  : " + hello);
+        System.out.println("Receiver2  : " + hello);
     }
+
 }

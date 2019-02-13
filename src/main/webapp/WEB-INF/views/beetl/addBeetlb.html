@@ -9,7 +9,10 @@
 我是${name}
 @if(name==null){
 fdsfsdf
+@}else{
+name为：${name}
 @}
+<br/>
 @var a = 2;
 @var b = 3;
 @var result = a+b;
@@ -31,7 +34,8 @@ ${newDate,dateFormat="yyyy-MM-dd"}
     ${content}
 </div>
 
-<!--Beetl 还可以定义额外的对象属性，而无需更改java对象，这叫着虚拟属性，如，对于所有集合，数组，都有共同的虚拟属性size.虚拟属性是“.~”+虚拟属性名-->
+<!--Beetl 还可以定义额外的对象属性，而无需更改java对象，这叫着虚拟属性，
+如，对于所有集合，数组，都有共同的虚拟属性size.虚拟属性是“.~”+虚拟属性名-->
 list的集合大小为${list.~size}
 <br/>
 <!--三元表达式-->
@@ -56,7 +60,9 @@ ${age==null?"age为null":age}
 <!--Beetl内置了少量实用函数，可以在Beetl任何地方调用。如下例子是调用date 函数，不传参数情况下，返回当前日期-->
 <br/>
 @ var date=date();
-@print(date);
+@println(date);
+<br/>
+${date,dateFormat="yyyy-MM-dd"}
 <br/>
 @var len = strutil.length("cbd");
 @println("len="+len);

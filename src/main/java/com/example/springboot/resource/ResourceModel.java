@@ -1,9 +1,3 @@
-/**
- * FileName: ResourceModel
- * Author:   韩旭杰
- * Date:     2018/10/30 23:31
- * Description: 配置资源变量
- */
 package com.example.springboot.resource;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -15,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
  * 必须配置spring-boot-configuration-processor依赖
  *
  * @author 韩旭杰
- * @create 2018/10/30
+ * @date 2018/10/30
  * @since 1.0.0
  */
 @Configuration

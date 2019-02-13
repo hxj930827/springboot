@@ -1,0 +1,8 @@
+2019-01-16 09:32:24,268 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 2.235 seconds (JVM running for 1398.393)
+2019-01-16 09:33:16,679 INFO (StartupInfoLogger.java:50)- Starting SpringbootApplication on jxd-hxj with PID 2484 (G:\eclipse\eclipse\workspace1\springboot\target\classes started by DELL in G:\eclipse\eclipse\workspace1\springboot)
+2019-01-16 09:33:16,679 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+2019-01-16 09:33:16,680 INFO (SpringApplication.java:680)- No active profile set, falling back to default profiles: default
+2019-01-16 09:33:18,510 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 1.875 seconds (JVM running for 1452.634)
+2019-01-16 09:35:09,285 INFO (StartupInfoLogger.java:50)- Starting SpringbootApplication on jxd-hxj with PID 2484 (G:\eclipse\eclipse\workspace1\springboot\target\classes started by DELL in G:\eclipse\eclipse\workspace1\springboot)
+2019-01-16 09:35:09,285 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+2019-01-16 09:35:09,286 INFO (SpringApplication.java:680)- No active profile set, falling back to default profiles: default

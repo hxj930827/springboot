@@ -11,6 +11,21 @@
 <div id="main" style="width:900px;height:600px;"></div>
 <button type="button" value="echarts" id="echarts">echarts</button>
 <script type="text/javascript">
+    // 获取字符串的数组
+    var mapJson='${mapJson}';
+    // 方法一：将数组的字符串转换为数组
+    var a=$.parseJSON(mapJson);
+
+    // 方法二：去除字符串中的[ ]
+    var newMapJson=mapJson.replace(/\[|]/g,'');
+    // 转换成数组
+    var mapJsonSplit=newMapJson.split(",");
+
+    // 获取后台对象转换的json字符串
+    var name='${name}';
+    // 转换成JSON
+    var nameJson=$.parseJSON(name);
+    alert(nameJson.data);
     var myChart=echarts.init(document.getElementById("main"));
     // 指定图表的配置项和数据
     var option={
@@ -63,7 +78,7 @@
             data:['销量','产量']
         },
         xAxis:{
-            data :[]
+            data :nameJson.info
         },
         yAxis:{
 
@@ -72,33 +87,33 @@
         series:[{
             name:'销量',
             type:'bar',
-            data:[]
+            data:a
         },{
             name:"产量",
             type:'line',
-            data:[]
+            data:nameJson.data
         }]
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
-    $(function () {
-        $.ajax({
-            url:"/mybatis/echartsDemo1",
-            async:false,
-            type:"post",
-            dataType:"json",
-            success:function (data) {
-                myChart.setOption({
-                    xAxis:{data:data.info},
-                    series:[{name:'产量',data:data.data},{name:'销量',data:[4,25,33,8,8,15]}]
-                })
-            },
-            error:function (error) {
-
-            }
-
-        });
-    })
+    // $(function () {
+    //     $.ajax({
+    //         url:"/mybatis/echartsDemo1",
+    //         async:false,
+    //         type:"post",
+    //         dataType:"json",
+    //         success:function (data) {
+    //             myChart.setOption({
+    //                 xAxis:{data:data.info},
+    //                 series:[{name:'产量',data:data.data},{name:'销量',data:[4,25,33,8,8,15]}]
+    //             })
+    //         },
+    //         error:function (error) {
+    //
+    //         }
+    //
+    //     });
+    // })
 </script>
 </body>
 </html>

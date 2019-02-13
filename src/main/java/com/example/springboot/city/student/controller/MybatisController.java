@@ -50,9 +50,10 @@ public class MybatisController {
         Map<String,Object> map=new HashMap<>();
         map.put("info",info);
         map.put("data",data);
-        String mapJson=toStr(map);
         mv.setViewName("echarts/echartsDemo1");
-        mv.addObject("map",mapJson);
+        mv.addObject("mapJson",toStr(data));
+        mv.addObject("name",toStr(map));
+        mv.addObject("map",map);
         return mv;
     }
 

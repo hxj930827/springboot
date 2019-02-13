@@ -12,6 +12,15 @@ spring:
     username: hxj
     password: hxj
     driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: springboot-rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: hxj
+    password: 123hanxujie
+    publisher-confirms: true
+    virtual-host: /
 logging:
   config: classpath:logback-spring.xml
   path: F:\\demo

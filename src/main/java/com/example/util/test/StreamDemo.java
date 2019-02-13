@@ -24,21 +24,25 @@ public class StreamDemo {
         filter();
     }
 
-    public static void getLimit(){
-        List<Integer> list=Arrays.asList(0,1,2,3,4,5);
-        Stream<Integer> stream=null;
+    /**
+     * 集合的限定 limit:获取前几个集合   skip()跳过前几个集合
+     */
+    public static void getLimit() {
+        List<Integer> list = Arrays.asList(0, 1, 2, 3, 4, 5);
+        Stream<Integer> stream = null;
         // 获取前两个集合 0，1
         // stream=list.stream().limit(2);
         // 跳过前两个集合
-        stream=list.stream().skip(2);
-        List<Integer> resultList=stream.collect(Collectors.toList());
+        stream = list.stream().skip(2);
+        List<Integer> resultList = stream.collect(Collectors.toList());
         resultList.forEach(System.out::println);
     }
+
     // 求最大值最小值
     public static void maxAndMin() {
         List<Integer> list = Arrays.asList(0, 1, 2, 3);
         Comparator<Integer> comparator = (o1, o2) -> o1.compareTo(o2);
-        System.out.println(list.stream().min(comparator).get());
+        System.out.println(list.stream().min((o1, o2) -> o1.compareTo(o2)).get());
         System.out.println(list.stream().max(comparator).get());
     }
 
@@ -48,40 +52,44 @@ public class StreamDemo {
     // 函数接口：只包含一个函数的接口成为函数接口。
     public static void filter() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
-//        Stream<Integer> stream = list.stream().filter((value) -> {
-//            if (value > 2) {
-//                return false;
-//            } else {
-//                return true;
-//            }
-//        });
-        Stream<Integer> stream = list.stream().filter(Test::getFlat);
+        Stream<Integer> stream = list.stream().filter((value) -> {
+            if (value > 2) {
+                return false;
+            } else {
+                return true;
+            }
+        });
+        //Stream<Integer> stream = list.stream().filter(Test::getFlat);
         List<Integer> result = stream.collect(Collectors.toList());
         result.forEach(System.out::println);
     }
-    public static boolean getFlat(int a){
-        if(a>2){
+
+    public static boolean getFlat(int a) {
+        if (a > 2) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
     // map 函数的作用是将流中的一个值转换成一个新的值，举个例子，我们要将一个 List 转换成 List ，那么就可以使用 map 方法
+    // 可以对结合里面的值进行任何操作
     public static void map() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
         List<String> result = list.stream().map((value) -> {
-            if(value>2){
-                return String.valueOf(value);
-            }else{
+            if (value > 2) {
+                return String.valueOf(value + 1);
+            } else {
                 return String.valueOf(value);
             }
-
         }).collect(Collectors.toList());
-//        Stream stream=list.stream().map(value->{
-//           return String.valueOf(value);
-//        });
         result.forEach(System.out::print);
+    }
+
+    public static void mapOne() {
+        List<String> list = Arrays.asList("a", "b", "c", "d", "e");
+        List<String> result = list.stream().map(String::toUpperCase).collect(Collectors.toList());
+        result.forEach(System.out::println);
     }
 
     // 从一组值中生成一个新的值，reduce 函数其实用途非常广泛，作用也比较大

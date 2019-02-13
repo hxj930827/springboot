@@ -132,6 +132,17 @@
             <version>1.1.22.RELEASE</version>
         </dependency>
 
+        <!--RabbitMQ 依赖-->
+        <!--<dependency>-->
+            <!--<groupId>com.rabbitmq</groupId>-->
+            <!--<artifactId>amqp-client</artifactId>-->
+            <!--<version>5.1.2</version>-->
+        <!--</dependency>-->
+        <!--RabbitMQ 依赖 (它和上面的rabbitMQ依赖任选其一)-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

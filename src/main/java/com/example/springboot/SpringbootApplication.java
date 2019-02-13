@@ -13,8 +13,12 @@ import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.io.IOException;
+
 @SpringBootApplication
-@EnableScheduling // 开启定时器
+/**
+ * 开启定时器
+ */
+@EnableScheduling
 public class SpringbootApplication {
     /**
      *  这个 main 方法其实就是一个标准的 Javay 应用的入口方法。
@@ -29,6 +33,7 @@ public class SpringbootApplication {
         ResourcePatternResolver patternResolver = ResourcePatternUtils.getResourcePatternResolver(new DefaultResourceLoader());
         try {
             // WebAppResourceLoader 配置root路径是关键
+            // beetl的默认根路径为resources/templates文件夹。如下行代码设置resources文件夹即为根路径
             WebAppResourceLoader webAppResourceLoader =
                     new WebAppResourceLoader(patternResolver.getResource("classpath:/").getFile().getPath());
             beetlGroupUtilConfiguration.setResourceLoader(webAppResourceLoader);

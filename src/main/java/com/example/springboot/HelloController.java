@@ -38,6 +38,7 @@ public class HelloController {
     private final static Logger logger = LoggerFactory.getLogger(HelloController.class);
     @Autowired
     private ResourceModel resourceModel;
+
     @RequestMapping("/hello")
     @ResponseBody // 返回json
     public String hello() {
@@ -46,39 +47,41 @@ public class HelloController {
 
     @RequestMapping("/resource")
     @ResponseBody // 返回json
-    public ImoocJSONResult resource(){
-        ResourceModel resourceModel1=new ResourceModel();
+    public ImoocJSONResult resource() {
+        ResourceModel resourceModel1 = new ResourceModel();
         resourceModel1.setLanguage(resourceModel.getLanguage());
         resourceModel1.setName(resourceModel.getName());
         resourceModel1.setWebSite(resourceModel.getWebSite());
         return ImoocJSONResult.ok(resourceModel1);
     }
+
     @RequestMapping("/helloWord")
-    public String hello(Model model){
+    public String hello(Model model) {
         model.addAttribute("now", DateFormat.getDateTimeInstance().format(new Date()));
-        model.addAttribute("name","beetl");
-        model.addAttribute("age",null);
-        model.addAttribute("newDate",new Date());
-        List list=new ArrayList(5);
+        model.addAttribute("name", "beetl");
+        model.addAttribute("age", null);
+        model.addAttribute("newDate", new Date());
+        List list = new ArrayList(5);
         list.add("1");
         list.add("2");
         list.add("3");
-        model.addAttribute("list",list);
+        model.addAttribute("list", list);
         return "beetl/addBeetlb";
     }
+
     @RequestMapping("/hw")
-    public String hw(Model model){
+    public String hw(Model model) {
         model.addAttribute("now", DateFormat.getDateTimeInstance().format(new Date()));
-        model.addAttribute("name","jsp");
+        model.addAttribute("name", "jsp");
         logger.info("logback 成功了");
         logger.error("logback 成功了");
         return "helloWord.jsp";
     }
 
     @RequestMapping("/echarts")
-    public String echarts(Model model){
+    public String echarts(Model model) {
         model.addAttribute("now", DateFormat.getDateTimeInstance().format(new Date()));
-        model.addAttribute("name","jsp");
+        model.addAttribute("name", "jsp");
         return "echarts/echartsDemo1";
     }
 

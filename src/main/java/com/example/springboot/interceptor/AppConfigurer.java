@@ -33,14 +33,24 @@ public class AppConfigurer implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        // 注册拦截器
         registry.addInterceptor(getLoginInterceptor())
+                // 拦截所有请求
                 .addPathPatterns("/**")
+                // 不包含error路径
                 .excludePathPatterns("/error")
+                // 不包含static路径
                 .excludePathPatterns("/static/*");
     }
 
+    /**
+     * 配置静态资源
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // addResourceHandler 请求路径
+        // addResourceLocations 在项目中的资源路径
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/");
     }

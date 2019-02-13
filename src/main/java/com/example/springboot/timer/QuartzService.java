@@ -28,7 +28,7 @@ import java.util.Date;
 public class QuartzService {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
-    //@Scheduled(cron="*/5 * * * * ?")
+    @Scheduled(cron="*/5 * * * * ?")
     public void dateTask(){
         LOG.info("SchedulerTask1 : " + new Date().toString());
     }

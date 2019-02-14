@@ -1,0 +1,10 @@
+2019-02-13 15:22:19,257 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 6.969 seconds (JVM running for 8.837)
+2019-02-13 15:22:20,003 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:20 CST 2019
+2019-02-13 15:22:25,002 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:25 CST 2019
+2019-02-13 15:22:30,002 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:30 CST 2019
+2019-02-13 15:22:35,001 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:35 CST 2019
+2019-02-13 15:22:40,001 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:40 CST 2019
+2019-02-13 15:22:45,002 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:45 CST 2019
+2019-02-13 15:22:50,002 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:50 CST 2019
+2019-02-13 15:22:55,001 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:22:55 CST 2019
+2019-02-13 15:23:00,002 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 15:23:00 CST 2019

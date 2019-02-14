@@ -1,0 +1,8 @@
+2019-02-14 14:20:00,004 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:20:00 CST 2019
+2019-02-14 14:20:03,251 INFO (SendMessageServiceImpl.java:45)- SendMessageServiceImpl() >>> 发送消息到RabbitMQ, 消息内容: 韩旭杰
+2019-02-14 14:20:03,484 INFO (SendMessageServiceImpl.java:57)- confirm回调方法>>>>>>>>>>>>>回调消息ID为: 336e96b8-2d32-4b17-aef5-d3ec599facb5
+2019-02-14 14:20:03,485 INFO (SendMessageServiceImpl.java:61)- confirm回调方法>>>>>>>>>>>>>消息发送失败channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no exchange 'directExchange1' in vhost '/', class-id=60, method-id=40)
+2019-02-14 14:20:05,003 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:20:05 CST 2019
+2019-02-14 14:20:10,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:20:10 CST 2019
+2019-02-14 14:20:15,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:20:15 CST 2019
+2019-02-14 14:20:20,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:20:20 CST 2019

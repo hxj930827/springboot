@@ -1,0 +1,9 @@
+2019-02-14 17:16:54,631 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 8.305 seconds (JVM running for 10.151)
+2019-02-14 17:16:55,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:16:55 CST 2019
+2019-02-14 17:16:58,070 INFO (SendMessageServiceImpl.java:47)- SendMessageServiceImpl() >>> 发送消息到RabbitMQ, 消息内容: 韩旭杰
+2019-02-14 17:16:58,092 INFO (Application.java:161)- 消息发送成功:correlationData(CorrelationData [id=49cf61f4-0d05-4934-87ea-404f760f1866]),ack(true),cause(null)
+2019-02-14 17:17:00,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:17:00 CST 2019
+2019-02-14 17:17:05,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:17:05 CST 2019
+2019-02-14 17:17:10,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:17:10 CST 2019
+2019-02-14 17:17:15,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:17:15 CST 2019
+2019-02-14 17:17:20,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:17:20 CST 2019

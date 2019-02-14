@@ -1,0 +1,10 @@
+2019-02-14 14:13:50,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:13:50 CST 2019
+2019-02-14 14:13:55,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:13:55 CST 2019
+2019-02-14 14:14:00,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:14:00 CST 2019
+2019-02-14 14:14:05,003 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:14:05 CST 2019
+2019-02-14 14:14:08,139 INFO (SendMessageServiceImpl.java:45)- SendMessageServiceImpl() >>> 发送消息到RabbitMQ, 消息内容: 韩旭杰
+2019-02-14 14:14:08,143 INFO (SendMessageServiceImpl.java:57)- confirm回调方法>>>>>>>>>>>>>回调消息ID为: 8e7b226e-b601-48c7-a0d0-603f9f93ae57
+2019-02-14 14:14:08,143 INFO (SendMessageServiceImpl.java:59)- confirm回调方法>>>>>>>>>>>>>消息发送成功
+2019-02-14 14:14:10,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:14:10 CST 2019
+2019-02-14 14:14:15,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:14:15 CST 2019
+2019-02-14 14:14:20,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:14:20 CST 2019

@@ -1,0 +1,9 @@
+2019-02-13 16:20:50,003 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 16:20:50 CST 2019
+2019-02-13 16:20:55,367 INFO (StartupInfoLogger.java:50)- Starting SpringbootApplication on jxd-hxj with PID 8940 (G:\eclipse\eclipse\workspace1\springboot\target\classes started by DELL in G:\eclipse\eclipse\workspace1\springboot)
+2019-02-13 16:20:55,368 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+2019-02-13 16:20:55,368 INFO (SpringApplication.java:680)- No active profile set, falling back to default profiles: default
+2019-02-13 16:20:57,235 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 2.023 seconds (JVM running for 667.895)
+2019-02-13 16:21:00,018 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 16:21:00 CST 2019
+2019-02-13 16:21:05,001 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 16:21:05 CST 2019
+2019-02-13 16:21:10,001 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 16:21:10 CST 2019
+2019-02-13 16:21:15,001 INFO (QuartzService.java:33)- SchedulerTask1 : Wed Feb 13 16:21:15 CST 2019

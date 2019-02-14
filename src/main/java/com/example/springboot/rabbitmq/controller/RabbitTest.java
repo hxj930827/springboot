@@ -6,9 +6,12 @@
  */
 package com.example.springboot.rabbitmq.controller;
 
+import com.example.springboot.rabbitmq.direct.DirectSender;
 import com.example.springboot.rabbitmq.fanout.FanoutSender;
 import com.example.springboot.rabbitmq.hello.HelloSender1;
 import com.example.springboot.rabbitmq.hello.model.User;
+import com.example.springboot.rabbitmq.service.SendMessageService;
+import com.example.springboot.rabbitmq.service.serviceimp.SendMessage1;
 import com.example.springboot.rabbitmq.topic.TopicSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +41,12 @@ public class RabbitTest {
     private TopicSender topicSender;
     @Autowired
     private FanoutSender fanoutSender;
+    @Autowired
+    private DirectSender directSender;
+    @Autowired
+    private SendMessageService sendMessageService;
+    @Autowired
+    private SendMessage1 sendMessage1;
 
     /**
      * 最简单的hello生产和消费实现（单生产者和单消费者）
@@ -79,6 +88,11 @@ public class RabbitTest {
         userSender.send(user);
     }
 
+    @RequestMapping("/directTest")
+    public void directTest() {
+        directSender.send();
+    }
+
     /**
      * topic exchange类型rabbitmq测试
      */
@@ -93,5 +107,14 @@ public class RabbitTest {
     @RequestMapping("/fanoutTest")
     public void fanoutTest() {
         fanoutSender.send();
+    }
+
+    @RequestMapping("/callback")
+    public void callback(){
+        sendMessageService.sendMessage("directExchange","direct","韩旭杰");
+    }
+    @RequestMapping("/callback1")
+    public void callback1(){
+        sendMessage1.sendMessage("directExchange2","direct","韩旭杰");
     }
 }

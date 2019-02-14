@@ -1,0 +1,9 @@
+2019-02-14 14:26:27,492 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 6.504 seconds (JVM running for 8.817)
+2019-02-14 14:26:30,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:26:30 CST 2019
+2019-02-14 14:26:35,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:26:35 CST 2019
+2019-02-14 14:26:36,498 INFO (SendMessageServiceImpl.java:45)- SendMessageServiceImpl() >>> 发送消息到RabbitMQ, 消息内容: 韩旭杰
+2019-02-14 14:26:48,497 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:26:48 CST 2019
+2019-02-14 14:26:48,503 INFO (SendMessageServiceImpl.java:57)- confirm回调方法>>>>>>>>>>>>>回调消息ID为: fcb19e3d-d90e-41ae-95f1-7e0a797dfad9
+2019-02-14 14:26:54,148 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:26:54 CST 2019
+2019-02-14 14:26:54,149 INFO (SendMessageServiceImpl.java:59)- confirm回调方法>>>>>>>>>>>>>消息发送成功
+2019-02-14 14:26:55,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 14:26:55 CST 2019

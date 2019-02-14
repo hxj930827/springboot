@@ -1,0 +1,8 @@
+2019-02-14 17:20:01,598 INFO (StartupInfoLogger.java:50)- Starting SpringbootApplication on jxd-hxj with PID 14732 (G:\eclipse\eclipse\workspace1\springboot\target\classes started by DELL in G:\eclipse\eclipse\workspace1\springboot)
+2019-02-14 17:20:01,608 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+2019-02-14 17:20:01,613 INFO (SpringApplication.java:680)- No active profile set, falling back to default profiles: default
+2019-02-14 17:20:08,505 INFO (StartupInfoLogger.java:59)- Started SpringbootApplication in 9.298 seconds (JVM running for 11.213)
+2019-02-14 17:20:10,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:10 CST 2019
+2019-02-14 17:20:15,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:15 CST 2019
+2019-02-14 17:20:20,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:20 CST 2019
+2019-02-14 17:20:23,332 INFO (SendMessageServiceImpl.java:47)- SendMessageServiceImpl() >>> 发送消息到RabbitMQ, 消息内容: 韩旭杰

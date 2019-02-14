@@ -6,11 +6,17 @@
  */
 package com.example.springboot.rabbitmq;
 
+import com.example.springboot.rabbitmq.service.serviceimp.SendMessage1;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.support.CorrelationData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * 说明：〈该类初始化创建队列、转发器，并把队列绑定到转发器〉
@@ -19,10 +25,11 @@ import org.springframework.context.annotation.Bean;
  * @date 2019/2/13
  * @since 1.0.0
  */
-@SpringBootApplication
+@Configuration
 public class Application {
+    @Autowired
+    private CachingConnectionFactory connectionFactory;
     final static String queueName = "hello";
-
     @Bean
     public Queue helloQueue() {
         return new Queue(queueName);
@@ -33,6 +40,10 @@ public class Application {
         return new Queue("user");
     }
 
+    @Bean
+    public Queue dirQueue() {
+        return new Queue("direct");
+    }
     //===============以下是验证topic Exchange的队列==========
     // Bean默认的name是方法名
     @Bean(name="message")
@@ -76,6 +87,10 @@ public class Application {
      * 　　Fanout是路由广播的形式,将会把消息发给绑定它的全部队列,即便设置了key,也会被忽略.
      */
     @Bean
+    DirectExchange directExchange(){
+        return new DirectExchange("directExchange");
+    }
+    @Bean
     TopicExchange exchange() {
         // 参数1为交换机的名称
         return new TopicExchange("exchange");
@@ -89,6 +104,11 @@ public class Application {
     FanoutExchange fanoutExchange() {
         // 参数1为交换机的名称
         return new FanoutExchange("fanoutExchange");
+    }
+
+    @Bean
+    Binding bindingExchangeDirect(@Qualifier("dirQueue")Queue dirQueue,DirectExchange directExchange){
+        return  BindingBuilder.bind(dirQueue).to(directExchange).with("direct");
     }
 
     /**
@@ -128,9 +148,32 @@ public class Application {
         return BindingBuilder.bind(CMessage).to(fanoutExchange);
     }
 
+    private static Logger log = LoggerFactory.getLogger(Application.class);
+    @Bean
+    public RabbitTemplate rabbitTemplate(){
+        connectionFactory.setPublisherConfirms(true);
+        connectionFactory.setPublisherReturns(true);
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMandatory(true);
+        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
+            @Override
+            public void confirm(CorrelationData correlationData, boolean ack, String cause) {
+                log.info("消息发送成功:correlationData({}),ack({}),cause({})",correlationData,ack,cause);
+            }
+        });
+        rabbitTemplate.setReturnCallback(new RabbitTemplate.ReturnCallback() {
+            @Override
+            public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
+                log.info("消息丢失:exchange({}),route({}),replyCode({}),replyText({}),message:{}",exchange,routingKey,replyCode,replyText,message);
+            }
+        });
+        return rabbitTemplate;
+    }
 
 
-//    public static void main(String[] args) throws Exception {
-//        SpringApplication.run(Application.class, args);
-//    }
+
+
+
+
+
 }

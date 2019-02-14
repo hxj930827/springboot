@@ -1,0 +1,9 @@
+2019-02-14 17:20:23,337 INFO (Application.java:161)- 消息发送成功:correlationData(CorrelationData [id=6a785d35-bbd5-44e2-b4bf-b96df4919424]),ack(true),cause(null)
+2019-02-14 17:20:25,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:25 CST 2019
+2019-02-14 17:20:30,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:30 CST 2019
+2019-02-14 17:20:35,003 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:35 CST 2019
+2019-02-14 17:20:38,555 INFO (SendMessage1.java:36)- SendMessage() >>> 发送消息到RabbitMQ, 消息内容: 韩旭杰
+2019-02-14 17:20:38,559 INFO (Application.java:161)- 消息发送成功:correlationData(CorrelationData [id=644de164-6534-4791-bfb4-bcc9ff62e965]),ack(true),cause(null)
+2019-02-14 17:20:40,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:40 CST 2019
+2019-02-14 17:20:45,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:45 CST 2019
+2019-02-14 17:20:50,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:20:50 CST 2019

@@ -1,0 +1,7 @@
+2019-02-14 17:25:00,110 INFO (Application.java:161)- 消息发送成功:correlationData(CorrelationData [id=2016ad2a-7fe4-4d83-aedb-f93b0ccac518]),ack(false),cause(channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no exchange 'directExchange2' in vhost '/', class-id=60, method-id=40))
+2019-02-14 17:25:05,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:25:05 CST 2019
+2019-02-14 17:25:10,001 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:25:10 CST 2019
+2019-02-14 17:25:15,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:25:15 CST 2019
+2019-02-14 17:25:20,002 INFO (QuartzService.java:33)- SchedulerTask1 : Thu Feb 14 17:25:20 CST 2019
+2019-02-14 17:25:23,164 INFO (SendMessage1.java:36)- SendMessage() >>> 发送消息到RabbitMQ, 消息内容: 韩旭杰
+2019-02-14 17:25:23,165 INFO (Application.java:161)- 消息发送成功:correlationData(CorrelationData [id=0f55a2c0-63d3-4eec-9b43-da424ae92662]),ack(false),cause(channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no exchange 'directExchange2' in vhost '/', class-id=60, method-id=40))

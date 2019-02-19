@@ -1,8 +1,8 @@
 /**
- * FileName: RevcMQ
+ * FileName: RevcMQ2
  * Author:   韩旭杰
- * Date:     2019/2/13 9:06
- * Description: MQ接收端
+ * Date:     2019/2/19 10:40
+ * Description: 测试ack
  */
 package com.example.springboot.rabbitmq;
 
@@ -11,13 +11,13 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 
 /**
- * 说明：〈MQ接收端〉
+ * 说明：〈测试ack〉
  *
  * @author 韩旭杰
- * @date 2019/2/13
+ * @date 2019/2/19
  * @since 1.0.0
  */
-public class RevcMQ {
+public class RevcMQ2 {
     private final static String QUEUE_NAME = "Hello";
     public final static String EXCHANGE_NAME="EXCHANGE_MQ";
 
@@ -45,13 +45,11 @@ public class RevcMQ {
                                        byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
                 try {
-                    Thread.sleep(2);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }finally {
-                    //这里basicConsume设置为false为不自动应答，同时为了保证业务正常执行完，
-                    // 回复确认要写在finally代码块里。channel.basicAck（）回复处理正确，
-                    // channel.basicNAck（）回复处理失败，参数设置为true为重新加入队列。
+                    // 第二个参数为true时，是重新加入队列
                     channel.basicAck(envelope.getDeliveryTag(), false);
                 }
                 System.out.println(" [x] Received '" + message + "'");

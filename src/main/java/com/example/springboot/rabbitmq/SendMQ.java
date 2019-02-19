@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 public class SendMQ {
     private final static String QUEUE_NAME = "Hello";
-
+    public final static String EXCHANGE_NAME="EXCHANGE_MQ";
     public static void main(String[] args) throws IOException, Exception {
         // connection是socket连接的抽象，并且为我们管理协议版本协商（protocol version negotiation），
         // 认证（authentication ）等等事情。这里我们要连接的消息代理在本地，因此我们将host设为“localhost”。
@@ -39,13 +39,30 @@ public class SendMQ {
         // 信道，多路复用连接中的一条独立的双向数据流通道。信道是建立在真实的TCP连接内地虚拟连接，
         // AMQP 命令都是通过信道发出去的，不管是发布消息、订阅队列还是接收消息，这些动作都是通过信道完成。
         // 因为对于操作系统来说建立和销毁 TCP 都是非常昂贵的开销，所以引入了信道的概念，以复用一条 TCP 连接。
-        Channel channel = connection.createChannel();
         // 接下来，我们创建一个channel，绝大部分API方法需要通过调用它来完成。
-        // 发送之前，我们必须声明消息要发往哪个队列，然后我们可以向队列发一条消息：
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        String message = "Hello world";
-        channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
-        System.out.println(" [x] Sent '" + message + "'");
+        Channel channel = connection.createChannel();
+        // RabbitMQ提供了txSelect()、txCommit()和txRollback()三个方法对消息发送进行事务管理，txSelect用于将通道channel开启事务模式，
+        // txCommit用于提交事务，txRollback用户进行事务回滚操作。
+        try {
+            // 开启事物
+            //channel.txSelect();
+            // 发送之前，我们必须声明消息要发往哪个队列，然后我们可以向队列发一条消息：
+            channel.exchangeDeclare(EXCHANGE_NAME, "fanout",true);
+            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+            channel.queueBind(QUEUE_NAME, EXCHANGE_NAME,"");
+            String message = "Hello world";
+            for(int i=0;i<10;i++){
+                channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+            }
+            System.out.println(" [x] Sent '" + message + "'");
+            // 模拟异常
+            //int a = 1 / 0;
+            // 提交事物
+            //channel.txCommit();
+        }catch (Exception e){
+            e.printStackTrace();
+            channel.txRollback();
+        }
         channel.close();
         connection.close();
     }

@@ -30,6 +30,6 @@ public class QuartzService {
 
     @Scheduled(cron="*/5 * * * * ?")
     public void dateTask(){
-        LOG.info("SchedulerTask1 : " + new Date().toString());
+        //LOG.info("SchedulerTask1 : " + new Date().toString());
     }
 }

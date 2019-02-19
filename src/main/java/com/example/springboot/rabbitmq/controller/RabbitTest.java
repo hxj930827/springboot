@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CountDownLatch;
+
 /**
  * 说明：〈rabbit测试〉
  *
@@ -27,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/rabbit")
-public class RabbitTest {
+public class RabbitTest{
     /**
      * 为了方便了解，所以每个对象写了一个，实际上前三个对象可以写成一个
      */
@@ -115,6 +117,33 @@ public class RabbitTest {
     }
     @RequestMapping("/callback1")
     public void callback1(){
-        sendMessage1.sendMessage("directExchange2","direct","韩旭杰");
+        sendMessage1.sendMessage("directExchange","direct1","韩旭杰");
+    }
+    @RequestMapping("/gbfCallback1")
+    public void gbfCallback1(){
+        CountDownLatch countDownLatch =new CountDownLatch(1);
+        for(int i=0;i<5;i++){
+            new Thread(new RunThread(countDownLatch)).start();
+        }
+        countDownLatch.countDown();
+    }
+static int num=1;
+    private class RunThread implements Runnable{
+        private final CountDownLatch startLatch;
+        public RunThread(CountDownLatch startLatch){
+            this.startLatch=startLatch;
+        }
+        @Override
+        public void run() {
+            // 线程等待
+            try {
+                startLatch.await();
+                //sendMessage1.sendMessage("directExchange","direct",String.valueOf(num));
+                helloSender1.send();
+                num++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -19,6 +19,7 @@ spring:
     port: 5672
     username: hxj
     password: 123hanxujie
+    # 若使用confirm-callback或return-callback，必须要配置publisherConfirms或publisherReturns为true
     publisher-confirms: true
     virtual-host: /
 logging:

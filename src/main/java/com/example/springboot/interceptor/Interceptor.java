@@ -29,7 +29,7 @@ public class Interceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
             throws Exception {
         // TODO Auto-generated method stub
-        System.out.println(3);
+        //System.out.println(3);
     }
 
     /**
@@ -45,7 +45,7 @@ public class Interceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
             throws Exception {
         // TODO Auto-generated method stub
-        System.out.println(2);
+        //System.out.println(2);
     }
 
     /**
@@ -56,7 +56,7 @@ public class Interceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-        System.err.println("1");
+        //System.err.println("1");
         return true;
     }
 }

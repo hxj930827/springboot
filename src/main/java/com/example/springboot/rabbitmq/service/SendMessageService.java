@@ -11,7 +11,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
  * @date 2019/2/14
  * @since 1.0.0
  */
-
-public interface SendMessageService extends RabbitTemplate.ConfirmCallback{
+public interface SendMessageService extends RabbitTemplate.ConfirmCallback,RabbitTemplate.ReturnCallback{
     void sendMessage(String exchange,String routekey,Object message);
 }

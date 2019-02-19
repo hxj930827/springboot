@@ -28,18 +28,14 @@ import java.util.UUID;
  */
 @Service
 public class SendMessageServiceImpl implements SendMessageService{
-
-
     private static Logger logger = LoggerFactory.getLogger(SendMessageServiceImpl.class);
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
-
     @Override
     public void sendMessage(String exchange,String routekey,Object message) {
         //设置回调对象
         //rabbitTemplate.setConfirmCallback(this);
-        rabbitTemplate.setMandatory(true);
+        //rabbitTemplate.setMandatory(true);
         //构建回调返回的数据
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         //rabbitTemplate.convertAndSend(Constants.SAVE_USER_EXCHANGE_NAME, Constants.SAVE_USER_QUEUE_ROUTE_KEY, message, correlationData);
@@ -62,6 +58,10 @@ public class SendMessageServiceImpl implements SendMessageService{
         } else {
             logger.info("confirm回调方法>>>>>>>>>>>>>消息发送失败" + s);
         }
+    }
+
+    @Override
+    public void returnedMessage(Message message, int i, String s, String s1, String s2) {
 
     }
 }

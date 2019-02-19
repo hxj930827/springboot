@@ -25,5 +25,4 @@ public class FanoutReceiverB {
     public void process(String msg) {
         System.out.println("FanoutReceiverB  : " + msg);
     }
-
 }

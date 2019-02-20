@@ -49,7 +49,6 @@ public class RevcMQ2 {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }finally {
-                    // 第二个参数为true时，是重新加入队列
                     channel.basicAck(envelope.getDeliveryTag(), false);
                 }
                 System.out.println(" [x] Received '" + message + "'");

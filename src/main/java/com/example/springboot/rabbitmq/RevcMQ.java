@@ -59,6 +59,6 @@ public class RevcMQ {
         };
         //自动回复队列应答 -- RabbitMQ中的消息确认机制
         //false 不自动回复应答
-        channel.basicConsume(QUEUE_NAME, false, consumer);
+        channel.basicConsume(QUEUE_NAME, true, consumer);
     }
 }

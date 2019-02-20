@@ -117,7 +117,9 @@ public class RabbitTest{
     }
     @RequestMapping("/callback1")
     public void callback1(){
-        sendMessage1.sendMessage("directExchange","direct1","韩旭杰");
+        for(int i=1;i<=5;i++){
+            sendMessage1.sendMessage("directExchange","direct","韩旭杰");
+        }
     }
     @RequestMapping("/gbfCallback1")
     public void gbfCallback1(){
